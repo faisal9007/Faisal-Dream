@@ -1,7 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_manager/ui/screens/sign_up_screen.dart';
 
 import '../widgets/screen_background.dart';
 import 'forget_password_email_varify.dart';
+import 'main_nav_bar_holder_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,6 +17,10 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+
+    void _onTabSignUp(){
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpScreen()));
+    }
     void _onTapForgetPassword (){
       Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgetPasswordEmailVarify()));
     }
@@ -46,7 +53,9 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 20,),
                FilledButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>MainNavBarHolderScreen()));
+                    },
                     child: Icon(Icons.double_arrow_outlined,
                     size: 30,
                     ),
@@ -65,6 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                             TextSpan(
                               text: 'SignUp',
                               style: TextStyle(color: Colors.blue),
+                                recognizer: TapGestureRecognizer()..onTap = _onTabSignUp
                             ),
                           ],
                           style: TextStyle(

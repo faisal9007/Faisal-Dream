@@ -1,20 +1,14 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:task_manager/ui/screens/reset_password_screen.dart';
+import 'package:task_manager/ui/screens/sign_up_screen.dart';
 import 'package:task_manager/ui/widgets/screen_background.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
 
 import 'forget_password_varify_otp.dart';
-import 'login_page.dart';
 
-class ForgetPasswordVarifyOtp extends StatelessWidget {
-  const ForgetPasswordVarifyOtp({super.key});
+class ResetPasswordScreen extends StatelessWidget {
+  const ResetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    void _onTabSignIn(){
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
-    }
     return Scaffold(
       body: ScreenBackground(
         child: Padding(
@@ -25,45 +19,25 @@ class ForgetPasswordVarifyOtp extends StatelessWidget {
               children: [
                 const SizedBox(height: 150),
                 Text(
-                  'PIN Varification',
+                  'Set Password',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  'A 6 digit OTP sent to your email',
+                  'Password Should be 6 mixed character',
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       color: Colors.grey
                   ),
                 ),
                 const SizedBox(height: 25),
-                PinCodeTextField(
-                  length: 6,
-                  obscureText: false,
-                  keyboardType: TextInputType.number,
-                  animationType: AnimationType.fade,
-                  pinTheme: PinTheme(
-                    shape: PinCodeFieldShape.box,
-                    borderRadius: BorderRadius.circular(5),
-                    fieldHeight: 50,
-                    fieldWidth: 40,
-                    activeFillColor: Colors.white,
-                    inactiveColor: Colors.grey.shade200,
-                    selectedColor: Colors.brown
-                  ),
-                  animationDuration: Duration(milliseconds: 300),
-                  backgroundColor: Colors.transparent,
-
-                  appContext: context,
-
-
-
-
-                ),
-
+                TextFormField(decoration: InputDecoration(hintText: 'Password')),
+                const SizedBox(height: 16),
+                TextFormField(decoration: InputDecoration(hintText: 'Confirm Password')),
                 const SizedBox(height: 16),
                 FilledButton(
-                  onPressed: () {   Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPasswordScreen()));
-                     },
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpScreen()));
+                  },
                   child: Icon(Icons.double_arrow_outlined, size: 30),
                 ),
 
@@ -79,7 +53,6 @@ class ForgetPasswordVarifyOtp extends StatelessWidget {
                             TextSpan(
                               text: 'SignIn',
                               style: TextStyle(color: Colors.blue),
-                                recognizer: TapGestureRecognizer()..onTap = _onTabSignIn
                             ),
                           ],
                           style: TextStyle(
