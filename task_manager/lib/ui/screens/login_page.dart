@@ -32,12 +32,14 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 25,),
                 TextFormField(
+                  keyboardType: TextInputType.text,
                   decoration: InputDecoration(
                     hintText: 'Email',
                   ),
                 ),
                 const SizedBox(height: 10,),
                 TextFormField(
+                  keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                       hintText: 'Password'
                   ),

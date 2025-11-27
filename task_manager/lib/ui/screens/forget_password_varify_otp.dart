@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/widgets/screen_background.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 import 'forget_password_varify_otp.dart';
 
-class ForgetPasswordEmailVarify extends StatelessWidget {
-  const ForgetPasswordEmailVarify({super.key});
+class ForgetPasswordVarifyOtp extends StatelessWidget {
+  const ForgetPasswordVarifyOtp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,24 +19,45 @@ class ForgetPasswordEmailVarify extends StatelessWidget {
               children: [
                 const SizedBox(height: 150),
                 Text(
-                  'Your Email Address',
+                  'PIN Varification',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  'A 6 digit OTP will be sent to your email',
+                  'A 6 digit OTP sent to your email',
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: Colors.grey
+                      color: Colors.grey
                   ),
                 ),
                 const SizedBox(height: 25),
-                TextFormField(decoration: InputDecoration(hintText: 'Email')),
+                PinCodeTextField(
+                  length: 6,
+                  obscureText: false,
+                  keyboardType: TextInputType.number,
+                  animationType: AnimationType.fade,
+                  pinTheme: PinTheme(
+                    shape: PinCodeFieldShape.box,
+                    borderRadius: BorderRadius.circular(5),
+                    fieldHeight: 50,
+                    fieldWidth: 40,
+                    activeFillColor: Colors.white,
+                    inactiveColor: Colors.grey.shade200,
+                    selectedColor: Colors.brown
+                  ),
+                  animationDuration: Duration(milliseconds: 300),
+                  backgroundColor: Colors.transparent,
+
+                  appContext: context,
+
+
+
+
+                ),
 
                 const SizedBox(height: 16),
                 FilledButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgetPasswordVarifyOtp()));
-                  },
+                     },
                   child: Icon(Icons.double_arrow_outlined, size: 30),
                 ),
 
