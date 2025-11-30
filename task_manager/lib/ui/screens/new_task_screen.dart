@@ -22,15 +22,18 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
           SizedBox(height: 15),
           SizedBox(
             height: 90,
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return TaskCount(title: 'Progress', count: index + 5);
-              },
-              separatorBuilder: (context, index) {
-                return SizedBox(width: 1);
-              },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 2.0),
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  return TaskCount(title: 'Progress', count: index + 5);
+                },
+                separatorBuilder: (context, index) {
+                  return SizedBox(width: 1);
+                },
+              ),
             ),
           ),
           Expanded(
